@@ -18,9 +18,9 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
-        'name',
         'email',
         'password',
+        'gender',
     ];
 
     /**
@@ -39,7 +39,11 @@ class User extends Authenticatable
      * @var array<string, string>
      */
     protected $casts = [
-        'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+		const GENDERS = [self::GENDER_FEMALE, self::GENDER_MALE, self::GENDER_DEFAULT];
+		const GENDER_FEMALE = 'female';
+		const GENDER_MALE = 'male';
+		const GENDER_DEFAULT = 'unselected';
 }
